@@ -1,17 +1,38 @@
 import React from "react";
 
-function Food({ fav }) {
-  return <h1>I love {fav}</h1>;
+function Food({ name, picture }) {
+  return (
+    <div>
+      <h2>I love {name}</h2>;
+      <img src={picture} />
+    </div>
+  );
 }
+
+const foodILike = [
+  {
+    name: "HaeSnaMul",
+    image:
+      "http://aeriskitchen.com/wp-content/uploads/2020/06/Seafood_Tteokbokki_01-1-1.jpg",
+  },
+  {
+    name: "Stichky Rice",
+    image:
+      "http://aeriskitchen.com/wp-content/uploads/2012/05/la_sticky_rice_cake_00-1-1.jpg",
+  },
+  {
+    name: "Steamed Egg",
+    image:
+      "http://aeriskitchen.com/wp-content/uploads/2020/06/Steamed_Egg_Sidedish_01-.jpg",
+  },
+];
 
 function App() {
   return (
     <div>
-      <h1>hello</h1>
-      <Food fav="kimchi" />
-      <Food fav="ramen" />
-      <Food fav="samgiopsal" />
-      <Food fav="chukumi" />
+      {foodILike.map((dish) => (
+        <Food name={dish.name} picture={dish.image} />
+      ))}
     </div>
   );
 }
